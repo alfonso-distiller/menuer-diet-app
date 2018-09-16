@@ -33,11 +33,23 @@ export default class App extends Component {
   }
 
   render() {
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    };
+
     return (
       <div className="App">
         <h1>Hello CodeSandbox</h1>
         <h2>Start editing to see some magic happen!</h2>
-        <button onClick={() => this.switchNameHandler('Maximilianillo')}>Switch Name</button>
+        <button
+          style={style}
+          onClick={() => this.switchNameHandler('Maximilianillo')}>
+          Switch Name
+        </button>
         <Person
           name={this.state.persons[0].name}
           age={this.state.persons[0].age}/>

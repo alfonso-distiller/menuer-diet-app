@@ -73,10 +73,20 @@ export default class App extends Component {
       style.backgroundColor = "red";
     }
 
+    let classes = [];
+
+    if (this.state.persons.length <= 2 ) {
+      classes.push('red');
+    } 
+
+    if (this.state.persons.length <= 1) {
+      classes.push('bold');
+    } 
+
     return (
       <div className="App">
         <h1>Hello CodeSandbox</h1>
-        <h2>Start editing to see some magic happen!</h2>
+        <p className={classes.join(' ')}>Start editing to see some magic happen!</p>
         <button style={style} onClick={this.togglePersonsHandler}>
           Switch Name
         </button>

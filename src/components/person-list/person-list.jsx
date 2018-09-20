@@ -1,7 +1,7 @@
 import React from "react";
 import Person from "../person/person.jsx";
 
-class PersonList extends React.Component {
+class PersonList extends React.PureComponent {
   constructor(props) {
     super(props);
     console.log('[person-list.jsx] @ constructor', props);
@@ -19,10 +19,10 @@ class PersonList extends React.Component {
     console.log('[person-list.jsx] @ componentWillReceiveProps', nextProps);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('[person-list.jsx] @ shouldComponentUpdate', nextProps, nextState);
-    return nextProps.persons !== this.props.persons;
-  }
+  //shouldComponentUpdate(nextProps, nextState) {
+  //  console.log('[person-list.jsx] @ shouldComponentUpdate', nextProps, nextState);
+  //  return nextProps.persons !== this.props.persons;
+  //}
 
   componentWillUpdate(nextProps, nextState) {
     console.log('[person-list.jsx] @ componentWillUpdate', nextProps, nextState);

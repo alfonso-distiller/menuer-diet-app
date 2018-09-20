@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import classes from "./styles.css";
 import Person from "../components/person/person.jsx";
 import PersonList from "../components/person-list/person-list.jsx";
 import CockPit from "../components/cockpit/cockpit.jsx";
 
-class App extends Component {
+class App extends PureComponent {
   constructor(props) {
     super(props);
     console.log('[app.jsx] @ constructor', props);
@@ -30,10 +30,10 @@ class App extends Component {
     console.log('[app.jsx] @ componentWillReceiveProps', nextProps);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('[app.jsx] @ shouldComponentUpdate', nextProps, nextState);
-    return true;
-  }
+  //shouldComponentUpdate(nextProps, nextState) {
+  //  console.log('[app.jsx] @ shouldComponentUpdate', nextProps, nextState);
+  //  return nextState.persons !== this.state.persons || nextState.showPersons !== this.state.showPersons;
+  //}
 
   componentWillUpdate(nextProps, nextState) {
     console.log('[app.jsx] @ componentWillUpdate', nextProps, nextState);
@@ -91,6 +91,7 @@ class App extends Component {
 
     return (
       <div className={classes.App}>
+        <button onClick={() => {this.setState({showPersons: true})}}>Show Persons</button>
         <CockPit
           title={this.props.title}
           showPersons={this.state.showPersons}

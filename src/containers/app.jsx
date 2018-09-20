@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import classes from "./styles.css";
 import Person from "../components/person/person.jsx";
+import PersonList from "../components/person-list/person-list.jsx";
+import CockPit from "../components/cockpit/cockpit.jsx";
 
 class App extends Component {
   state = {
@@ -14,7 +16,7 @@ class App extends Component {
 
   nameChangedHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex(p => {
-      return p.userId === id;
+      return p.id === id;
     });
 
     const person = {
@@ -57,41 +59,22 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-          {this.state.persons.map((person, index) => {
-            return (
-              <Person
-                click={() => this.deletePersonHandler(index)}
-                name={person.name}
-                age={person.age}
-                changed={event => this.nameChangedHandler(event, person.id)}
-              />
-            );
-          })}
+          <PersonList
+            persons={this.state.persons}
+            clicked={this.deletePersonHandler}
+            changed={this.nameChangedHandler}
+          />
         </div>
       );
-
-      style.backgroundColor = "red";
-    }
-
-    let assignedClasses = [];
-
-    if (this.state.persons.length <= 2) {
-      assignedClasses.push("red");
-    }
-
-    if (this.state.persons.length <= 1) {
-      assignedClasses.push("bold");
     }
 
     return (
       <div className={classes.App}>
-        <h1>Hello CodeSandbox</h1>
-        <p className={assignedClasses.join(" ")}>
-          Start editing to see some magic happen!
-        </p>
-        <button style={style} onClick={this.togglePersonsHandler}>
-          Switch Name
-        </button>
+        <CockPit
+          showPersons={this.state.showPersons}
+          persons={this.state.persons}
+          click={this.togglePersonsHandler}
+        />
         {persons}
       </div>
     );

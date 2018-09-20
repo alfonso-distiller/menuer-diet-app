@@ -1,11 +1,7 @@
 import React from "react";
-import classes from './person.css';
+import classes from "./person.css";
 
 const person = props => {
-  const rng = Math.random();
-  if(rng > 0.8) {
-    throw new Error('Something went wrong');
-  }
   return (
     <div className={classes.person}>
       <p onClick={props.click}>

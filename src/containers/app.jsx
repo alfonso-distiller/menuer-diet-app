@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import classes from './styles.css';
-import Person from "./person/person.jsx";
-import ErrorBoundary from './error-boundary/error-boundary.jsx';
+import classes from "./styles.css";
+import Person from "../components/person/person.jsx";
 
 class App extends Component {
   state = {
@@ -60,14 +59,12 @@ class App extends Component {
         <div>
           {this.state.persons.map((person, index) => {
             return (
-              <ErrorBoundary key={person.id}>
-                <Person
-                  click={() => this.deletePersonHandler(index)}
-                  name={person.name}
-                  age={person.age}
-                  changed={event => this.nameChangedHandler(event, person.id)}
-                />
-              </ErrorBoundary>
+              <Person
+                click={() => this.deletePersonHandler(index)}
+                name={person.name}
+                age={person.age}
+                changed={event => this.nameChangedHandler(event, person.id)}
+              />
             );
           })}
         </div>
@@ -78,21 +75,23 @@ class App extends Component {
 
     let assignedClasses = [];
 
-    if (this.state.persons.length <= 2 ) {
-      assignedClasses.push('red');
-    } 
+    if (this.state.persons.length <= 2) {
+      assignedClasses.push("red");
+    }
 
     if (this.state.persons.length <= 1) {
-      assignedClasses.push('bold');
-    } 
+      assignedClasses.push("bold");
+    }
 
     return (
       <div className={classes.App}>
         <h1>Hello CodeSandbox</h1>
-        <p className={assignedClasses.join(' ')}>Start  editing to see some magic happen!</p>
+        <p className={assignedClasses.join(" ")}>
+          Start editing to see some magic happen!
+        </p>
         <button style={style} onClick={this.togglePersonsHandler}>
           Switch Name
-      </button>
+        </button>
         {persons}
       </div>
     );

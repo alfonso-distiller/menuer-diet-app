@@ -5,3 +5,21 @@
 .bold {
   font-weight: bold;
 }
+
+.greeButton {
+  background-color: green;
+  color: white;
+  font: inherit;
+  border: 1px solid blue;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.redButton {
+  background-color: red;
+  color: white;
+  font: inherit;
+  border: 1px solid blue;
+  padding: 8px;
+  cursor: pointer;
+}

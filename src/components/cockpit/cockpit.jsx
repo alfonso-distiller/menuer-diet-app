@@ -3,10 +3,10 @@ import classes from "./cockpit.css";
 
 const CockPit = props => {
   const assignedClasses = [];
-  let btnClass = "";
+  let btnClass = classes.greeButton;
 
-  if(props.showPersons) {
-    btnClass = classes.red
+  if (props.showPersons) {
+    btnClass = classes.redButton;
   }
 
   if (props.persons.length <= 2) {
@@ -19,7 +19,7 @@ const CockPit = props => {
 
   return (
     <div>
-      <h1>Hi, Im a react app</h1>
+      <h1>{props.title}</h1>
       <p className={assignedClasses.join(" ")}>
         Start editing to see some magic happen!
       </p>

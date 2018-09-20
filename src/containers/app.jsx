@@ -45,15 +45,6 @@ class App extends Component {
   };
 
   render() {
-    const style = {
-      backgroundColor: "green",
-      color: "white",
-      font: "inherit",
-      border: "1px solid blue",
-      padding: "8px",
-      cursor: "pointer"
-    };
-
     let persons = null;
 
     if (this.state.showPersons) {
@@ -71,6 +62,7 @@ class App extends Component {
     return (
       <div className={classes.App}>
         <CockPit
+          title={this.props.title}
           showPersons={this.state.showPersons}
           persons={this.state.persons}
           click={this.togglePersonsHandler}

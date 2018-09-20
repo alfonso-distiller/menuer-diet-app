@@ -5,6 +5,7 @@ class PersonList extends React.PureComponent {
   constructor(props) {
     super(props);
     console.log('[person-list.jsx] @ constructor', props);
+    this.lastPersonRef = React.createRef();
   }
 
   componentWillMount() {
@@ -13,6 +14,7 @@ class PersonList extends React.PureComponent {
 
   componentDidMount() {
     console.log('[person-list.jsx] @ componentDidMount');
+    this.lastPersonRef.current.focus();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -38,7 +40,9 @@ class PersonList extends React.PureComponent {
       return (
         <Person
           key={person.id}
+          pos={index}
           click={() => this.props.clicked(index)}
+          forwardedRef={this.lastPersonRef}
           name={person.name}
           age={person.age}
           changed={event => this.props.changed(event, person.id)}

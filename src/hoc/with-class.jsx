@@ -1,9 +1,11 @@
 import React from 'react';
 
-const WithClass = (props) => (
-  <div className={props.classes}>
-    {props.children}
-  </div>
-);
+const withClass = (WrappedComponent, ClassName) => {
+  return (props) => (
+    <div className={ClassName}>
+      <WrappedComponent />
+    </div>
+  )
+}
 
-export default WithClass;
+export default withClass;

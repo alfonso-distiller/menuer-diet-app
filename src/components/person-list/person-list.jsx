@@ -15,6 +15,22 @@ class PersonList extends React.Component {
     console.log('[person-list.jsx] @ componentDidMount');
   }
 
+  componentWillReceiveProps(nextProps) {
+    console.log('[person-list.jsx] @ componentWillReceiveProps', nextProps);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('[person-list.jsx] @ shouldComponentUpdate', nextProps, nextState);
+    return nextProps.persons !== this.props.persons;
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    console.log('[person-list.jsx] @ componentWillUpdate', nextProps, nextState);
+  }
+
+  componentDidUpdate() {
+    console.log('[person-list.jsx] @ componentDidUpdate');
+  }
 
   render() {
     console.log('[person-list.jsx] @ render');
